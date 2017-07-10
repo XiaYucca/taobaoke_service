@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <title></title>
+    </head>
+    <body>
+        <h1>{{ string }}</h1>
+
+        <form action="/home/add/" method='post' enctype="multipart/form-data">
+            {% csrf_token %}
+            {{ form }}
+            name: <input type="text" name="name"> <br>
+            email: <input type="text" name="email"> <br>
+            password: <input type="password" name="password"> <br>
+            file:<input type="file" name="image" multiple="multiple" /><br>
+            <input type="submit" value="提交">
+        </form>
+        
+        <h1>image  {{ imgurl.headImg }} </h1>
+        {% load staticfiles %}
+        <img class="st_camera" src={% static "default.jpg" %} width="200" height="200">
+            
+        {% load staticfiles %}
+            <img src="{% static imgurl.headImg %}" alt="My image" width="100" height="100"/>
+    </body>
+ 
+
+
+ 
+</html>
